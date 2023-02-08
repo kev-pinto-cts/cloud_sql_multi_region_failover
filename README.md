@@ -2,7 +2,7 @@
 
 ## Normal Operations View
 
-![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/readme_images/normal_ops.png)
+![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/normal_ops.png)
 
 
 ## Description
