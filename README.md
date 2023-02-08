@@ -66,6 +66,8 @@ The Script is about to do the following:
 These actions are Permanent - **Do you wish to continue(Y/N)**
 ```
 On Selecting Y to the Prompt above the following actions are executed:
+Please note that this process takes anywhere between **8-10 minutes** - Please make sure this is part of your RTO 
+
 ```bash
 Breaking Replica Link with Primary: demo....
 The following message will be used for the patch API method.
@@ -90,5 +92,28 @@ Patching Read Replica to have Zonal Availability and Configuring Backup and Main
 The following message will be used for the patch API method.
 {"name": "demo-replica", "project": "cloudsqlpoc-demo", "settings": {"activationPolicy": "ALWAYS", "availabilityType": "REGIONAL", "backupConfiguration": {"backupRetentionSettings": {"retainedBackups": 7, "retentionUnit": "COUNT"}, "enabled": true, "pointInTimeRecoveryEnabled": false, "replicationLogArchivingEnabled": false, "startTime": "02:00", "transactionLogRetentionDays": 7}, "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "maintenanceWindow": {"day": 7, "hour": 3}}}
 Patching Cloud SQL instance...⠼
+Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Elapsed Time: 470 seconds
+New Primary Instance demo-replica is Ready ... Kindly Update the App with the Connection Details
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                           ✨ New Primary Instance:demo-replica ✨                                                           │
+├──────────────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────────────┬──────────┬───────────────┤
+│     NAME     │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │              CONNECTION_NAME               │  STATE   │ REPLICA_NAMES │
+├──────────────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────────────┼──────────┼───────────────┤
+│ demo-replica │ europe-west1 │ europe-west1-d │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west1:demo-replica │ RUNNABLE │               │
+└──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ```
 
+## Failover View
+Notice the following:
+1) Link between primary and Read are Broken
+2) Read Replica is now HA
+
+At this point the Read Replica is a Completely new Instance and has no connection to the Original Instance (which is down to a Regional Failure)
+
+![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failover.png)
+
+Once this is Up, please do the Following:
+* Update your cloud sql auth proxy to point to this Instance
+* Update any apps that directly reference the instance 
+* Create new replication slots and publications in case logical replication was setup on the old primary
