@@ -85,7 +85,7 @@ Breaking Replica Link with Primary: demo....
 The following message will be used for the patch API method.
 {"name": "demo-replica", "project": "cloudsqlpoc-xxxx", "settings": {"databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "databaseReplicationEnabled": false}}
 Patching Cloud SQL instance...done.
-Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo-replica].
 Elapsed Time: 51 seconds
 Promoting Read Replica: demo-replica....
 Promoting a read replica stops replication and converts the instance
@@ -98,13 +98,13 @@ Learn more:
 https://cloud.google.com/sql/docs/postgres/replication/manage-replicas#promote-replica
 
 Promoting Cloud SQL replica...⠧
-Promoted [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Promoted [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo-replica].
 Elapsed Time: 70 seconds
 Patching Read Replica to have Zonal Availability and Configuring Backup and Maintenance Windows
 The following message will be used for the patch API method.
-{"name": "demo-replica", "project": "cloudsqlpoc-demo", "settings": {"activationPolicy": "ALWAYS", "availabilityType": "REGIONAL", "backupConfiguration": {"backupRetentionSettings": {"retainedBackups": 7, "retentionUnit": "COUNT"}, "enabled": true, "pointInTimeRecoveryEnabled": false, "replicationLogArchivingEnabled": false, "startTime": "02:00", "transactionLogRetentionDays": 7}, "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "maintenanceWindow": {"day": 7, "hour": 3}}}
+{"name": "demo-replica", "project": "cloudsqlpoc-xxxx", "settings": {"activationPolicy": "ALWAYS", "availabilityType": "REGIONAL", "backupConfiguration": {"backupRetentionSettings": {"retainedBackups": 7, "retentionUnit": "COUNT"}, "enabled": true, "pointInTimeRecoveryEnabled": false, "replicationLogArchivingEnabled": false, "startTime": "02:00", "transactionLogRetentionDays": 7}, "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "maintenanceWindow": {"day": 7, "hour": 3}}}
 Patching Cloud SQL instance...⠼
-Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo-replica].
 Elapsed Time: 470 seconds
 New Primary Instance demo-replica is Ready ... Kindly Update the App with the Connection Details
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -112,7 +112,7 @@ New Primary Instance demo-replica is Ready ... Kindly Update the App with the Co
 ├──────────────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────────────┬──────────┬───────────────┤
 │     NAME     │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │              CONNECTION_NAME               │  STATE   │ REPLICA_NAMES │
 ├──────────────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────────────┼──────────┼───────────────┤
-│ demo-replica │ europe-west1 │ europe-west1-d │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west1:demo-replica │ RUNNABLE │               │
+│ demo-replica │ europe-west1 │ europe-west1-d │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-xxxx:europe-west1:demo-replica │ RUNNABLE │               │
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ```
 
@@ -139,18 +139,18 @@ This does not adversely affect your primary app operations as this is being carr
 
 ```bash
 The Script is about to do the following:
-* Clean Up any Instance with the Name: demo in Project: cloudsqlpoc-demo
+* Clean Up any Instance with the Name: demo in Project: cloudsqlpoc-xxxx
 * Create a Read Replica:(demo) for Instance:demo-replica in Region europe-west2
 These actions are Permanent - Do you wish to continue(Y/N):y
 The following message will be used for the patch API method.
-{"name": "demo", "project": "cloudsqlpoc-demo", "settings": {"activationPolicy": "NEVER", "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}]}}
+{"name": "demo", "project": "cloudsqlpoc-xxxx", "settings": {"activationPolicy": "NEVER", "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}]}}
 Patching Cloud SQL instance...done.
-Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo].
+Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo].
 Deleting Cloud SQL instance...done.
-Deleted [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo].
+Deleted [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo].
 Instance demo deleted, Elapsed Time: 145 seconds
 Creating Cloud SQL instance for POSTGRES_14...done.
-Created [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo].
+Created [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-xxxx/instances/demo].
 NAME  DATABASE_VERSION  LOCATION        TIER               PRIMARY_ADDRESS  PRIVATE_ADDRESS  STATUS
 demo  POSTGRES_14       europe-west2-c  db-custom-4-26624  34.105.215.88    10.15.160.23     RUNNABLE
 Read Replica demo created, Elapsed Time: 349 seconds
@@ -159,14 +159,14 @@ Read Replica demo created, Elapsed Time: 349 seconds
 ├──────────────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────────────┬──────────┬───────────────┤
 │     NAME     │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │              CONNECTION_NAME               │  STATE   │ REPLICA_NAMES │
 ├──────────────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────────────┼──────────┼───────────────┤
-│ demo-replica │ europe-west1 │ europe-west1-d │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west1:demo-replica │ RUNNABLE │ ['demo']      │
+│ demo-replica │ europe-west1 │ europe-west1-d │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-xxxx:europe-west1:demo-replica │ RUNNABLE │ ['demo']      │
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                       ✨ Read Replica Instance:demo ✨                                                      │
 ├──────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────┬──────────┬───────────────┤
 │ NAME │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │          CONNECTION_NAME           │  STATE   │ REPLICA_NAMES │
 ├──────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────┼──────────┼───────────────┤
-│ demo │ europe-west2 │ europe-west2-c │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west2:demo │ RUNNABLE │               │
+│ demo │ europe-west2 │ europe-west2-c │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-xxxx:europe-west2:demo │ RUNNABLE │               │
 └──────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────┴──────────┴───────────────┘
 ```
 #### Region2 Instance with Read Replica in Region 1
