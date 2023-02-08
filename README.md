@@ -1,4 +1,5 @@
 # Connecting to Cloud SQL - Postgres
+![Normal Operations](readme_images/normal_ops.png)
 The Following Scripts are to be used for Cloud SQL Failover
 This assumes that there already is a CloudSQL instance in Region1 with a Read Replica in Region2.
 For Cost Savings ensure that the Read Replica in Region2 is not HA
@@ -30,7 +31,7 @@ status                         Output the Current State of the Deployment
 ```
 
 ### make status
-The `make status` command shows an output as shown below
+The `make status` command shows an output as shown below - Use this command to know the current state of the Deployment
 ```bash
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                    ✨ Primary Instance:demo ✨                                                                     │
