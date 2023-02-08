@@ -193,3 +193,6 @@ Once the new primary is Running in Region 1, please do not forget the Following:
 ### Final step -- Create a Read Replica Post Failback
 The command to achieve this is 
 `make failback_replica`
+This final command resets the state of the Deployment back to the Original view
+
+![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failback_with_replica.png)
