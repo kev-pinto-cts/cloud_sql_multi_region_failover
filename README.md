@@ -14,7 +14,7 @@ The Objective of these scripts is to ensure that we failback to Region 1 as soon
 ### Failover Flow
 1. Promote Read Replica (Region 2) to primary once Region 1 is down (Regional Failover)
 2. Ensure new read replica is HA
-3. Create a read-replica to newly promoted primary (old replica) in region 1 (**only once the region is back**) - this step involves deleting the old primary !
+3. Create a read-replica to newly promoted primary (old replica) in region 1 (**only once the region is back**) - _this step involves deleting the old primary_
 4. Promote the read-replica created above to primary -- this is our failback state. i.e. we are making the region1 instance primary once again
 5. Upgrade the new primary to HA
 6. Create a Read Replica(region1) to the new Primary in Region 1
