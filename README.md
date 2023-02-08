@@ -12,6 +12,8 @@ For Cost Savings ensure that the Read Replica in Region2 is not HA
 
 ### Before you begin
 Kindly edit the following Values in your Makefile
+
+```bash
 PROJECT=<UPDATEME>
 PRIMARY_REGION=<UPDATEME> example: europe-west2
 FAILOVER_REGION=<UPDATEME> example: europe-west2
@@ -20,7 +22,7 @@ READ_REPLICA=<UPDATEME> Name of the Read Replica
 MAINTENANCE_WINDOW_DAY=<UPDATEME> example: SUN
 MAINTENANCE_WINDOW_HOUR=<UPDATEME> example: 03
 BACKUP_START_TIME=<UPDATEME> example: 02:00
-
+```
 
 
 ### Make commands
