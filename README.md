@@ -1,4 +1,4 @@
-# Connecting to Cloud SQL - Postgres
+# Cloud SQL Multi Region Failover and Failback
 ![Normal Operations](readme_images/normal_ops.png)
 The Following Scripts are to be used for Cloud SQL Failover
 This assumes that there already is a CloudSQL instance in Region1 with a Read Replica in Region2.
