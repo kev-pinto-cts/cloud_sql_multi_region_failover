@@ -65,5 +65,30 @@ The Script is about to do the following:
 * Promote Read Replica:(demo-replica) as the New Primary with **HA Enabled in Region europe-west1**
 These actions are Permanent - **Do you wish to continue(Y/N)**
 ```
+On Selecting Y to the Prompt above the following actions are executed:
+```bash
+Breaking Replica Link with Primary: demo....
+The following message will be used for the patch API method.
+{"name": "demo-replica", "project": "cloudsqlpoc-xxxx", "settings": {"databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "databaseReplicationEnabled": false}}
+Patching Cloud SQL instance...done.
+Updated [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Elapsed Time: 51 seconds
+Promoting Read Replica: demo-replica....
+Promoting a read replica stops replication and converts the instance
+to a standalone primary instance with read and write capabilities.
+This can't be undone. To avoid loss of data, before promoting the
+replica, you should verify that the replica has applied all
+transactions received from the primary.
 
+Learn more:
+https://cloud.google.com/sql/docs/postgres/replication/manage-replicas#promote-replica
+
+Promoting Cloud SQL replica...⠧
+Promoted [https://sqladmin.googleapis.com/sql/v1beta4/projects/cloudsqlpoc-demo/instances/demo-replica].
+Elapsed Time: 70 seconds
+Patching Read Replica to have Zonal Availability and Configuring Backup and Maintenance Windows
+The following message will be used for the patch API method.
+{"name": "demo-replica", "project": "cloudsqlpoc-demo", "settings": {"activationPolicy": "ALWAYS", "availabilityType": "REGIONAL", "backupConfiguration": {"backupRetentionSettings": {"retainedBackups": 7, "retentionUnit": "COUNT"}, "enabled": true, "pointInTimeRecoveryEnabled": false, "replicationLogArchivingEnabled": false, "startTime": "02:00", "transactionLogRetentionDays": 7}, "databaseFlags": [{"name": "cloudsql.logical_decoding", "value": "on"}, {"name": "max_connections", "value": "1000"}], "maintenanceWindow": {"day": 7, "hour": 3}}}
+Patching Cloud SQL instance...⠼
+```
 
