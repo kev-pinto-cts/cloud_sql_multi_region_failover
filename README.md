@@ -49,4 +49,14 @@ The `make status` command shows an output as shown below
 
 ```
 
+### make failover
+This command Initiates the Failover and Provides the user with a prompt similar to below:
+```bash
+************ Promote Read Replica  **********************************
+The Script is about to do the following:
+* Break Replica Link to Primary Instance: demo in Project: cloudsqlpoc-xxxx
+* Promote Read Replica:(demo-replica) as the New Primary with **HA Enabled in Region europe-west1**
+These actions are Permanent - **Do you wish to continue(Y/N)**
+```
+
 

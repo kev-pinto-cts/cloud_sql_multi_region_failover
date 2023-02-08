@@ -8,6 +8,10 @@ MAINTENANCE_WINDOW_DAY=$5
 MAINTENANCE_WINDOW_HOUR=$6
 BACKUP_START_TIME=$7
 
+echo "Project: ${PROJECT}" 
+echo "Primary Instance-Region: ${PRIMARY_INSTANCE}-${PRIMARY_REGION}"
+echo "Maintenance Schedule: ${MAINTENANCE_WINDOW_DAY}-${MAINTENANCE_WINDOW_HOUR}"
+echo "Read Replica: ${READ_REPLICA}"
 
 
 decribe_replica_instance() {
@@ -17,9 +21,9 @@ decribe_replica_instance() {
 
 decribe_replica_instance
 
-gcloud sql instances describe ${PRIMARY_INSTANCE} --format="table[box,title='✨ Primary Instance:${PRIMARY_INSTANCE} ✨'](name,region,gceZone,settings.availabilityType,databaseVersion,connectionName,state,replicaNames)"
+gcloud sql instances describe ${PRIMARY_INSTANCE} --format="table[box,title='✨ Primary Instance: ${PRIMARY_INSTANCE} ✨'](name,region,gceZone,settings.availabilityType,databaseVersion,connectionName,state,replicaNames)"
 
-gcloud sql instances describe ${READ_REPLICA} --format="table[box,title='✨ Read Replica:${READ_REPLICA} ✨'](name,region,gceZone,settings.availabilityType,databaseVersion,connectionName,state)"
+gcloud sql instances describe ${READ_REPLICA} --format="table[box,title='✨ Read Replica: ${READ_REPLICA} ✨'](name,region,gceZone,settings.availabilityType,databaseVersion,connectionName,state)"
 
 echo ""
 echo "************ Promote Read Replica  **********************************"

@@ -22,10 +22,10 @@ init: ## Update gcloud
 	$(suppress_output)gcloud components update
 
 failover: ## Failover to Read Replica - use in event of Regional Failover
-	$(suppress_output)echo "Initiating Failover for Instance:${PRIMARY_INSTANCE} in Project:${PROJECT}"
+	$(suppress_output)echo "Initiating Failover for Instance: ${PRIMARY_INSTANCE} in Project: ${PROJECT}"
 	$(suppress_output) bash ./failover/sql_failover.sh \
 	${PROJECT} \
-	${PRIMARY_REGION}\
+	${PRIMARY_REGION} \
 	${PRIMARY_INSTANCE} \
 	${READ_REPLICA} \
 	${MAINTENANCE_WINDOW_DAY} \
