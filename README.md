@@ -1,6 +1,12 @@
 # Cloud SQL Multi Region Failover and Failback
 
-* ![Normal Operations](readme_images/normal_ops.png)
+## Normal Operations View
+
+
+![Normal Operations](readme_images/normal_ops.png)
+
+
+## Description
 The Following Scripts are to be used for Cloud SQL Failover
 This assumes that there already is a CloudSQL instance in Region1 with a Read Replica in Region2.
 For Cost Savings ensure that the Read Replica in Region2 is not HA
