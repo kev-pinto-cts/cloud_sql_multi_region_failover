@@ -116,7 +116,7 @@ New Primary Instance demo-replica is Ready ... Kindly Update the App with the Co
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ```
 
-## Failover View
+## Failover to Region 2 replica when Primary region is down
 Notice the following:
 1) Link between primary and Read are Broken
 2) Read Replica is now HA
@@ -166,7 +166,7 @@ Read Replica demo created, Elapsed Time: 349 seconds
 │ demo │ europe-west2 │ europe-west2-c │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west2:demo │ RUNNABLE │               │
 └──────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────┴──────────┴───────────────┘
 ```
-# New Instance with Read Replica
+# Region2 Instance with Read Replica in Region 1
 ![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failover_with_replica.png)
 
 
