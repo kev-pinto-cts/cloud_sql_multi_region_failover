@@ -12,9 +12,9 @@ For Cost Savings ensure that the Read Replica in Region2 is not HA
 The Objective of these scripts is to ensure that we failback to Region 1 as soon as it becomes Available
 
 ### Failover Flow
-1. Promote Read Replica (Region 2) to primary once Region 1 is down (Regional Failover)
-2. Ensure new read replica is HA
-3. Create a read-replica to newly promoted primary (old replica) in Region 1 (**only once the Region is back**) - _this step involves deleting the old primary_
+1. Promote Read Replica (Region 2) to Primary once Region 1 is down (Regional Failover)
+2. Ensure the newly promoted Primary Instance (old read-replica) is now HA (2 Zones)
+3. Create a read-replica to newly promoted Primary (old replica) in Region 1 (**only once the Region is back**) - _this step involves deleting the old primary_
 4. Promote the read-replica created above to primary -- this is our failback state. i.e. we are making the region1 instance primary once again
 5. Upgrade the new primary to HA
 6. Create a Read Replica(Region 2) to the new Primary in Region 1
@@ -26,7 +26,7 @@ Kindly edit the following Values in your **Makefile**
 ```bash
 PROJECT=<UPDATEME>
 PRIMARY_REGION=<UPDATEME> example: europe-west2
-FAILOVER_REGION=<UPDATEME> example: europe-west2
+FAILOVER_REGION=<UPDATEME> example: europe-west1
 PRIMARY_INSTANCE=<UPDATEME> Name of the Cloud Instance
 READ_REPLICA=<UPDATEME> Name of the Read Replica
 MAINTENANCE_WINDOW_DAY=<UPDATEME> example: SUN
