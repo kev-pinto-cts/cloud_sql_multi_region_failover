@@ -32,7 +32,7 @@ status                         Output the Current State of the Deployment
 ### make status
 The `make status` command shows an output as shown below
 <p align="left"> 
-  <img src="./readme_images/make_status.png" width="1000px" height="400px">
+  <img src="make_status.png" width="1000px" height="400px">
 </p>
 
 
