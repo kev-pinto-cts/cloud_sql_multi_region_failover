@@ -133,7 +133,7 @@ Once the new primary is Running, please do the Following:
 
 ### Create Read-replica in Region 1 once back
 The command to set this up is `make failover_replica`
-This command will do step 2 in the failover flow
+This command will do step 3 in the failover flow
 The time taken to complete this depends on the Volume of data.
 We have observed upto 15 mins to bring the replica to a running state
 This does not adversely affect your primary app operations as this is being carried out as a background task
@@ -175,7 +175,7 @@ Read Replica demo created, Elapsed Time: 349 seconds
 
 
 ### Failback 
-A failback is the process of moving back to the Original Region once it becomes available. this Involves initiating a Failover once again. Once the Failover is successful we will initiate the process to create a read replica to this newly promoted instance. In short we are doing the last 2 steps once again just this time we are reversing the regions and the instance names.
+A failback is the process of moving back to the Original Region once it becomes available (Step 4-6). this Involves initiating a Failover once again. Once the Failover is successful we will initiate the process to create a read replica to this newly promoted instance. In short, we are doing the previous 2 steps once again. It's just that, this time we are reversing the regions and the instance names.
 
 The command to initiate a failback is 
 `make failback`
