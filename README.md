@@ -37,14 +37,14 @@ The `make status` command shows an output as shown below
 ├──────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────┬──────────┬──────────────────┬───────────────────┤
 │ NAME │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │          CONNECTION_NAME           │  STATE   │  REPLICA_NAMES   │        TIER       │
 ├──────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────┼──────────┼──────────────────┼───────────────────┤
-│ demo │ europe-west2 │ europe-west2-c │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west2:demo │ RUNNABLE │ ['demo-replica'] │ db-custom-4-26624 │
+│ demo │ europe-west2 │ europe-west2-c │ REGIONAL          │ POSTGRES_14      │ cloudsqlpoc-xxxx:europe-west2:demo │ RUNNABLE │ ['demo-replica'] │ db-custom-4-26624 │
 └──────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────┴──────────┴──────────────────┴───────────────────┘
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                 ✨ Read Replica:demo-replica ✨                                                                 │
 ├──────────────┬──────────────┬────────────────┬───────────────────┬──────────────────┬────────────────────────────────────────────┬──────────┬───────────────────┤
 │     NAME     │    REGION    │    GCE_ZONE    │ AVAILABILITY_TYPE │ DATABASE_VERSION │              CONNECTION_NAME               │  STATE   │        TIER       │
 ├──────────────┼──────────────┼────────────────┼───────────────────┼──────────────────┼────────────────────────────────────────────┼──────────┼───────────────────┤
-│ demo-replica │ europe-west1 │ europe-west1-d │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west1:demo-replica │ RUNNABLE │ db-custom-4-26624 │
+│ demo-replica │ europe-west1 │ europe-west1-d │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-xxxx:europe-west1:demo-replica │ RUNNABLE │ db-custom-4-26624 │
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────────┘
 
 ```
