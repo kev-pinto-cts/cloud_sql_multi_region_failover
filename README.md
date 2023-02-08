@@ -125,7 +125,7 @@ At this point the Read Replica is a Completely new Instance and has no connectio
 
 ![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failover.png)
 
-Once this is Up, please do the Following:
+Once the new primary is Running, please do the Following:
 * Update your cloud sql auth proxy to point to this Instance
 * Update any apps that directly reference the instance 
 * Create new replication slots and publications in case logical replication was setup on the old primary
@@ -166,7 +166,16 @@ Read Replica demo created, Elapsed Time: 349 seconds
 │ demo │ europe-west2 │ europe-west2-c │ ZONAL             │ POSTGRES_14      │ cloudsqlpoc-demo:europe-west2:demo │ RUNNABLE │               │
 └──────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────┴──────────┴───────────────┘
 ```
-# Region2 Instance with Read Replica in Region 1
+#### Region2 Instance with Read Replica in Region 1
 ![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failover_with_replica.png)
 
 
+### Failback 
+A failback is the process of moving back to the Original Region once it becomes available. this Involves initiating a Failover once again. Once the Failover is successful we will initiate the process to create a read replica to this newly promoted instance. In short we are doing the last 2 steps once again just this time we are reversing the regions and the instance names.
+
+The command to initiate a failback is 
+`make failback`
+
+#### Failback to region1
+Notice how the link has been broken between the 2 instances
+![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failback.png)
