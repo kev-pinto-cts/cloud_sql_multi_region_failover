@@ -1,17 +1,17 @@
 # Cloud SQL Multi Region Failover and Failback
 
-## Normal Operations View
+### Normal Operations View
 
 ![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/normal_ops.png)
 
 
-## Description
+### Description
 The Following Scripts are to be used for Cloud SQL Failover
 This assumes that there already is a CloudSQL instance in Region1 with a Read Replica in Region2.
 For Cost Savings ensure that the Read Replica in Region2 is not HA
 The Objective of these scripts is to ensure that we failback to Region 1 as soon as it becomes Available
 
-## Failover Flow
+### Failover Flow
 * 1 Promote Read Replica (Region 2) to primary once Region 1 is down (Regional Failover)
 * 2 Ensure new read replica is HA
 * 3 Create a read-replica to newly promoted primary (old replica) in region 1 once the region is back - this step involves deleting the old primary !
@@ -130,7 +130,7 @@ Once the new primary is Running, please do the Following:
 * Update any apps that directly reference the instance 
 * Create new replication slots and publications in case logical replication was setup on the old primary
 
-## Create Read-replica in Region 1 once back
+### Create Read-replica in Region 1 once back
 The command to set this up is `make failover_replica`
 This command will do step 2 in the failover flow
 The time taken to complete this depends on the Volume of data.
