@@ -3,7 +3,7 @@
 ## Normal Operations View
 
 
-![Normal Operations](readme_images/normal_ops.png)
+![ScreenShot](readme_images/normal_ops.png)
 
 
 ## Description
