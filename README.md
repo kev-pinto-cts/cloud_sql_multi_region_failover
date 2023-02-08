@@ -116,7 +116,7 @@ New Primary Instance demo-replica is Ready ... Kindly Update the App with the Co
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ```
 
-#### Outcomes of Failover
+#### Outcomes of the `make failover` command
 Notice the following:
 1) Link between primary and Read are Broken
 2) Read Replica is now HA
@@ -133,6 +133,9 @@ Once the new primary is Running, please do the Following:
 ## Create Read-replica in Region 1 once back
 The command to set this up is `make failover_replica`
 This command will do step 2 in the failover flow
+The time taken to complete this depends on the Volume of data.
+We have observed upto 15 mins to bring the replica to a running state
+This does not adversely affect your primary app operations as this is being carried out as a background task
 
 ```bash
 The Script is about to do the following:
@@ -176,6 +179,17 @@ A failback is the process of moving back to the Original Region once it becomes 
 The command to initiate a failback is 
 `make failback`
 
-#### Failback to region1
+#### Failback to Region1
 Notice how the link has been broken between the 2 instances
 ![ScreenShot](https://raw.github.com/kev-pinto-cts/cloud_sql_multi_region_failover/main/readme_images/failback.png)
+
+Once the new primary is Running in Region 1, please do not forget the Following:
+* Update your cloud sql auth proxy to point to this Instance
+* Update any apps that directly reference the instance 
+* Create new replication slots and publications in case logical replication was setup on the old primary
+
+
+
+### Final step -- Create a Read Replica Post Failback
+The command to achieve this is 
+`make failback_replica`
