@@ -53,7 +53,7 @@ failback: ## Failback to the Original Primary
 	${MAINTENANCE_WINDOW_HOUR} \
 	${BACKUP_START_TIME}
 
-failback_replica:
+failback_replica: ## Create a Read Replica to the Primary post Failback
 	$(suppress_output)echo "Creating Instance Replica in Project:${PROJECT}"
 	$(suppress_output) bash ./failover/setup_replica.sh \
 	${PROJECT} \

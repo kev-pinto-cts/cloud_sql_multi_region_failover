@@ -45,6 +45,7 @@ init                           Update gcloud
 failover                       Failover to Read Replica - use in event of Regional Failover
 failover_replica               Create a Read Replica to the newly promoted Primary
 failback                       Failback to the Original Primary
+failback_replica               Create a Read Replica to the Primary post Failback
 status                         Output the Current State of the Deployment
 ```
 
