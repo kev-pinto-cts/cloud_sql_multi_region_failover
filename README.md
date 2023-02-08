@@ -116,7 +116,7 @@ New Primary Instance demo-replica is Ready ... Kindly Update the App with the Co
 └──────────────┴──────────────┴────────────────┴───────────────────┴──────────────────┴────────────────────────────────────────────┴──────────┴───────────────┘
 ```
 
-## Failover to Region 2 replica when Primary region is down
+#### Outcomes of Failover
 Notice the following:
 1) Link between primary and Read are Broken
 2) Read Replica is now HA
